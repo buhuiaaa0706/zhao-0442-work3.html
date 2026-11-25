@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>城市诗歌朗诵夜 · Poetry Reading Night | 古琴社招新</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        margin: 0;
+    }
+
+    body {
+        background-color: #14110E;
+        background-image:
+            radial-gradient(circle at 16% 6%, rgba(201, 169, 106, 0.16), transparent 42%),
+            radial-gradient(circle at 84% 94%, rgba(180, 71, 47, 0.12), transparent 46%),
+            linear-gradient(160deg, #26201A 0%, #14110E 58%, #0C0A08 100%);
+        background-attachment: fixed;
+        color: #2B2620;
+        font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+        text-align: center;
+        padding: 52px 18px 64px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* 作业要求的 .page 样式，仅修改了 background-color */
+    .page {
+        display: inline-block;
+        background-color: #FFF6D9;
+        box-shadow: 0 0 30px rgba(80, 58, 35, 0.25);
+        text-align: left;
+        max-width: 720px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Kaiti SC", "STKaiti", "KaiTi", "Songti SC", serif;
+        color: #2B2620;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+
+    /* ---------- 顶部标题区 ---------- */
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 58px 60px 46px;
+        background-color: #221D18;
+        background-image:
+            radial-gradient(circle at 82% 20%, rgba(201, 169, 106, 0.30), transparent 34%),
+            linear-gradient(150deg, #2E271F 0%, #1B1713 72%);
+        color: #FFF6D9;
+    }
+
+    .moon {
+        position: absolute;
+        top: 46px;
+        right: 56px;
+        width: 86px;
+        height: 86px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 36% 32%, #FFFDF2 0%, #F6E5BC 44%, #D8BB80 100%);
+        box-shadow: 0 0 0 9px rgba(255, 246, 217, 0.04), 0 0 64px 20px rgba(240, 214, 160, 0.26);
+    }
+
+    .watermark {
+        position: absolute;
+        right: 14px;
+        bottom: -44px;
+        font-family: "Kaiti SC", "KaiTi", "STKaiti", serif;
+        font-size: 152px;
+        line-height: 1;
+        color: rgba(255, 246, 217, 0.055);
+        letter-spacing: 0;
+        z-index: 1;
+    }
+
+    .eyebrow {
+        position: relative;
+        z-index: 2;
+        margin: 0 0 18px;
+        font-family: Arial, "Helvetica Neue", sans-serif;
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: #C9A96A;
+        text-transform: uppercase;
+    }
+
+    .hero h1 {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+        font-size: 46px;
+        line-height: 1.32;
+        letter-spacing: 7px;
+        color: #FFF6D9;
+    }
+
+    .hero-en {
+        position: relative;
+        z-index: 2;
+        margin: 12px 0 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+        font-size: 21px;
+        letter-spacing: 2px;
+        color: #DCC79E;
+    }
+
+    .hero-sub {
+        position: relative;
+        z-index: 2;
+        margin: 28px 0 0;
+        font-size: 14px;
+        letter-spacing: 2.5px;
+        line-height: 1.9;
+        color: #BFAE92;
+    }
+
+    .hero-rule {
+        width: 76px;
+        height: 1px;
+        margin: 24px 0 0;
+        background-image: linear-gradient(90deg, #C9A96A, rgba(201, 169, 106, 0));
+    }
+
+    /* 用 CSS 画出的七根琴弦 */
+    .strings {
+        height: 30px;
+        background-color: #3A2D22;
+        background-image: repeating-linear-gradient(
+            to bottom,
+            rgba(255, 246, 217, 0) 0px,
+            rgba(255, 246, 217, 0) 3px,
+            rgba(255, 246, 217, 0.26) 3px,
+            rgba(255, 246, 217, 0.26) 4px
+        );
+        box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ---------- 活动介绍区 ---------- */
+    .intro {
+        padding: 46px 60px 40px;
+        background-color: #FFF6D9;
+    }
+
+    .kicker {
+        margin: 0 0 10px;
+        font-family: Arial, "Helvetica Neue", sans-serif;
+        font-size: 10px;
+        letter-spacing: 3px;
+        color: #A9772F;
+        text-transform: uppercase;
+    }
+
+    .intro h2 {
+        margin: 0 0 22px;
+        font-size: 25px;
+        line-height: 1.55;
+        letter-spacing: 3px;
+    }
+
+    .intro-text {
+        margin: 0 0 18px;
+        font-size: 15px;
+        line-height: 2.05;
+        letter-spacing: 0.3px;
+        color: #4A4036;
+        text-align: justify;
+    }
+
+    .verse {
+        margin: 22px 0 24px;
+        padding: 4px 0 4px 20px;
+        border-left: 3px solid #B4472F;
+        background-image: linear-gradient(90deg, rgba(180, 71, 47, 0.06), rgba(180, 71, 47, 0));
+        font-size: 15.5px;
+        line-height: 2.1;
+        letter-spacing: 0.4px;
+        color: #7B3D2B;
+    }
+
+    p#intro {
+        margin: 26px 0 0;
+        padding: 16px 20px;
+        background-color: #F9E7BE;
+        border-left: 4px solid #B4472F;
+        font-size: 14.5px;
+        font-weight: 700;
+        line-height: 1.95;
+        letter-spacing: 0.5px;
+        color: #8C2F1E;
+    }
+
+    /* ---------- 报名表格区 ---------- */
+    .schedule {
+        padding: 42px 60px 48px;
+        background-color: #FCF1D6;
+        border-top: 1px solid #EAD9B0;
+    }
+
+    .schedule h3 {
+        margin: 0 0 8px;
+        font-size: 21px;
+        letter-spacing: 2px;
+    }
+
+    .table-note {
+        margin: 0 0 18px;
+        font-size: 12px;
+        line-height: 1.8;
+        letter-spacing: 0.3px;
+        color: #8A7658;
+    }
+
+    .table-wrap {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #FFFCF2;
+        box-shadow: 0 10px 26px rgba(120, 90, 45, 0.10);
+        font-size: 13px;
+    }
+
+    th {
+        padding: 13px 12px;
+        background-color: #2B2620;
+        color: #F5E7C8;
+        font-family: "Songti SC", "SimSun", serif;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    td {
+        padding: 13px 12px;
+        border-bottom: 1px solid #EEE2C6;
+        line-height: 1.6;
+        color: #4A4036;
+    }
+
+    tr:nth-child(even) td {
+        background-color: #FBF2DC;
+    }
+
+    tr:hover td {
+        background-color: #F6E4B8;
+    }
+
+    td:first-child {
+        font-family: Georgia, "Times New Roman", serif;
+        letter-spacing: 1px;
+        color: #A9772F;
+    }
+
+    .status-ok {
+        color: #3F6B4F;
+    }
+
+    .status-wait {
+        color: #A8702A;
+    }
+
+    .status-back {
+        color: #8A7A62;
+    }
+
+    /* 后代选择器：div 里 table 里的超级链接 */
+    div table a {
+        color: #9C3A24;
+        font-weight: 700;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(156, 58, 36, 0.32);
+    }
+
+    /* ---------- 页面链接区 ---------- */
+    .links {
+        padding: 46px 60px 54px;
+        text-align: center;
+    }
+
+    .links h4 {
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: 4px;
+    }
+
+    .link-row {
+        margin: 26px 0 0;
+    }
+
+    /* 全局链接伪类 */
+    a:link {
+        color: #8C4A2F;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: #7A6A52;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #B4472F;
+        text-decoration: underline;
+    }
+
+    a:active {
+        color: #2E5A63;
+        text-decoration: underline;
+    }
+
+    a.red, a.blue {
+        display: inline-block;
+        min-width: 232px;
+        margin: 7px 8px;
+        padding: 14px 24px;
+        border-radius: 999px;
+        font-size: 15px;
+        letter-spacing: 2px;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    a.red {
+        background-color: #B4472F;
+        color: #FFF6D9;
+        box-shadow: 0 10px 22px rgba(180, 71, 47, 0.28);
+    }
+
+    a.blue {
+        background-color: #2E5A63;
+        color: #FFF6D9;
+        box-shadow: 0 10px 22px rgba(46, 90, 99, 0.25);
+    }
+
+    a.red:visited {
+        background-color: #8A4936;
+        color: #F5E7C8;
+    }
+
+    a.blue:visited {
+        background-color: #3D5F60;
+        color: #F5E7C8;
+    }
+
+    a.red:hover {
+        background-color: #9B3923;
+        color: #FFF6D9;
+        text-decoration: none;
+        transform: translateY(-3px);
+        box-shadow: 0 16px 30px rgba(180, 71, 47, 0.34);
+    }
+
+    a.blue:hover {
+        background-color: #264D56;
+        color: #FFF6D9;
+        text-decoration: none;
+        transform: translateY(-3px);
+        box-shadow: 0 16px 30px rgba(46, 90, 99, 0.32);
+    }
+
+    a.red:active, a.blue:active {
+        transform: translateY(1px);
+        box-shadow: 0 5px 12px rgba(43, 38, 32, 0.22);
+    }
+
+    /* ---------- 底部公告区 ---------- */
+    .notice {
+        padding: 38px 60px 44px;
+        background-color: #211C17;
+        color: #E8DAB9;
+        font-size: 13px;
+        line-height: 2.05;
+        letter-spacing: 0.4px;
+    }
+
+    /* 伪元素：段落首字、div 首行 */
+    p::first-letter {
+        font-size: 1.45em;
+        font-weight: 700;
+        color: #B4472F;
+        margin-right: 2px;
+    }
+
+    div::first-line {
+        letter-spacing: 1.5px;
+        font-weight: 600;
+    }
+
+    .notice::first-line {
+        color: #E4C179;
+    }
+
+    .eyebrow::first-letter,
+    .hero-en::first-letter,
+    .hero-sub::first-letter,
+    .kicker::first-letter,
+    .table-note::first-letter {
+        font-size: 1em;
+        font-weight: inherit;
+        color: inherit;
+        margin-right: 0;
+    }
+
+    @media (max-width: 720px) {
+        body {
+            padding: 24px 12px 38px;
+        }
+
+        .hero {
+            padding: 44px 30px 38px;
+        }
+
+        .moon {
+            top: 34px;
+            right: 28px;
+            width: 62px;
+            height: 62px;
+        }
+
+        .watermark {
+            font-size: 116px;
+            bottom: -34px;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+            letter-spacing: 4px;
+        }
+
+        .hero-en {
+            font-size: 17px;
+        }
+
+        .hero-sub {
+            font-size: 12.5px;
+            letter-spacing: 1.5px;
+        }
+
+        .intro, .schedule, .links, .notice {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .intro h2 {
+            font-size: 21px;
+        }
+
+        .intro-text {
+            font-size: 14.5px;
+        }
+
+        table {
+            font-size: 12px;
+        }
+
+        th, td {
+            padding: 10px 8px;
+        }
+
+        a.red, a.blue {
+            min-width: 210px;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .hero h1 {
+            font-size: 28px;
+            letter-spacing: 3px;
+        }
+
+        .intro, .schedule, .links, .notice {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a.red, a.blue {
+            min-width: 100%;
+            margin: 6px 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- ① 顶部标题区 -->
+    <div class="hero">
+        <div class="moon"></div>
+        <div class="watermark">诗</div>
+        <p class="eyebrow">GUQIN CLUB · AUTUMN RECRUITMENT 2026</p>
+        <h1>城市诗歌朗诵夜</h1>
+        <p class="hero-en">Poetry Reading Night</p>
+        <div class="hero-rule"></div>
+        <p class="hero-sub">古琴社秋季招新 · 以诗为引，以琴会友</p>
+    </div>
+    <div class="strings"></div>
+
+    <!-- ② 活动介绍区 -->
+    <div class="intro">
+        <p class="kicker">01 / ABOUT THE NIGHT</p>
+        <h2 id="intro">当城市入夜，诗与琴同频</h2>
+        <p class="intro-text">城市诗歌朗诵夜，是古琴社每年秋末的固定节目。我们把剧场留到晚上九点，只为让白天来不及说出口的话，借一首诗慢慢说完。</p>
+        <p class="verse">李白写过：「举杯邀明月，对影成三人。」千年之后，城市的上空仍是同一轮月亮。你可以读一首旧诗，也可以读自己刚刚写下的几行。</p>
+        <p class="intro-text">古琴社 2026 年秋季招新同步开启。零基础也可以报名，社团备有练习琴与入门课；我们更在意的不是指法，而是你愿不愿意在夜里，为自己留一段安静的时间。</p>
+        <p class="intro-text">现场设三分钟自由朗读与古琴体验区。师兄师姐会带你拨响第一声散音——不必完美，带着呼吸来就好。</p>
+        <p id="intro">重要提示：活动免费，限 40 席，需提前登记；报名成功的同学请于 18:45 前入场，迟到席位将开放给现场候补。</p>
+    </div>
+
+    <!-- ③ 活动报名信息表格区 -->
+    <div class="schedule">
+        <p class="kicker">02 / SIGN-UP LIST</p>
+        <h3>报名名单 · 秋夜读诗人</h3>
+        <p class="table-note">名单截至 11 月 25 日，点击篇目可返回活动介绍；席位按登记时间先后确认。</p>
+        <div class="table-wrap">
+            <table>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>班级</th>
+                    <th>朗诵篇目</th>
+                    <th>报名状态</th>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>林晚</td>
+                    <td>汉语言 2301</td>
+                    <td><a href="#intro">《将进酒》</a></td>
+                    <td class="status-ok">已确认</td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>沈知白</td>
+                    <td>软件工程 2504</td>
+                    <td><a href="#intro">《雨巷》</a></td>
+                    <td class="status-ok">已确认</td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>周慕云</td>
+                    <td>英语 2402</td>
+                    <td><a href="#intro">《再别康桥》</a></td>
+                    <td class="status-wait">待确认</td>
+                </tr>
+                <tr>
+                    <td>04</td>
+                    <td>苏念</td>
+                    <td>新闻传播 2303</td>
+                    <td><a href="#intro">《你是人间的四月天》</a></td>
+                    <td class="status-back">候补</td>
+                </tr>
+                <tr>
+                    <td>05</td>
+                    <td>陈砚</td>
+                    <td>数学 2501</td>
+                    <td><a href="#intro">《春江花月夜》</a></td>
+                    <td class="status-ok">已确认</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- ④ 页面链接区 -->
+    <div class="links">
+        <p class="kicker">03 / JOIN US</p>
+        <h4>今夜，来读一首诗</h4>
+        <div class="link-row">
+            <a class="red" href="https://hongchenwusdnu.github.io/bookstore/job4.html">查看往期活动照片</a>
+            <a class="blue" href="job3.html">在线咨询活动详情</a>
+        </div>
+    </div>
+
+    <!-- ⑤ 底部公告区 -->
+    <div class="notice">
+        报名截止：2026 年 11 月 26 日（周四）20:00。请在本页登记，逾期自动进入候补名单。<br><br>活动时间：2026 年 11 月 28 日（周六）19:00—21:00；地点：济南市历下区城市书房三层小剧场。<br><br>温馨提示：现场提供古琴与诗册，建议提前十五分钟入场；活动免费，欢迎带上你最近读的一首诗。<br>—— 古琴社 · 城市诗歌朗诵夜
+    </div>
+
+</div>
+
+</body>
+</html>
